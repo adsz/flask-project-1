@@ -13,6 +13,9 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Install pytest
 RUN pip install pytest
 
+# Set PYTHONPATH to include the app directory
+ENV PYTHONPATH=/app
+
 # Make port 5000 available to the world outside this container
 EXPOSE 5000
 

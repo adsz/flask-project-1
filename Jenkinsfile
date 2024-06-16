@@ -27,7 +27,9 @@ pipeline {
             steps {
                 script {
                     dockerImage.inside {
-                        sh 'pytest tests/'
+                        withEnv(["PYTHONPATH=/app"]) {
+                            sh 'pytest tests/'
+                        }
                     }
                 }
             }
