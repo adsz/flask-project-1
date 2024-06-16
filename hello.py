@@ -1,16 +1,14 @@
 from flask import Flask
-import subprocess
 
 app = Flask(__name__)
 
-
 @app.route('/')
-def hello():
+def home():
     return 'Hello, World!'
 
+@app.route('/about')
+def about():
+    return 'This is the about page.'
 
-@app.route('/packages')
-def list_packages():
-    result = subprocess.run(['pip', 'list'], capture_output=True, text=True)
-    packages = result.stdout
-    return f'<pre>{packages}</pre>'
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=5000)

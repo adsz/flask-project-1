@@ -65,7 +65,7 @@ pipeline {
             slackSend (
                 channel: env.SLACK_CHANNEL,
                 color: 'danger',
-                message: "Build ${env.BUILD_ID} failed :-(.",
+                message: "Build ${env.BUILD_ID} failed.",
                 teamDomain: env.SLACK_TEAM_DOMAIN,
                 tokenCredentialId: env.SLACK_CREDENTIAL_ID
             )

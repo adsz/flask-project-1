@@ -10,14 +10,14 @@ COPY . /app
 # Install any needed packages specified in requirements.txt
 RUN pip install --no-cache-dir -r requirements.txt
 
+# Install pytest
+RUN pip install pytest
+
 # Make port 5000 available to the world outside this container
 EXPOSE 5000
 
 # Define environment variable
 ENV FLASK_APP=hello.py
-
-# Run tests
-CMD ["pytest", "tests/"]
 
 # Run the application
 CMD ["flask", "run", "--host=0.0.0.0"]
