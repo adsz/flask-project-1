@@ -4,14 +4,14 @@ pipeline {
     environment {
         DOCKER_IMAGE = 'adsz/flask-project-1'
         SLACK_CHANNEL = '#jenkins'
-        SLACK_CREDENTIAL_ID = 'slack-token'  // Ensure this matches the ID of the updated credential
+        SLACK_CREDENTIAL_ID = 'slack-token'
         SLACK_TEAM_DOMAIN = 'devopslabcloud'
     }
 
     stages {
         stage('Checkout') {
             steps {
-                git 'https://github.com/adsz/jenkins-slack.git'
+                git branch: 'main', url: 'https://github.com/adsz/flask-project-1.git'
             }
         }
 
